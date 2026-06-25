@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: dim_airports
+    columns:
+      - name: airport_id
+        tests: [unique, not_null]
+  - name: fct_airport_comments
+    columns:
+      - name: comment_id
+        tests: [unique, not_null]
+  - name: fct_airport_frequencies
+    columns:
+      - name: frequency_id
+        tests: [unique, not_null]

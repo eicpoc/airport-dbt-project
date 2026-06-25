@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: airport
+    database: DEMO
+    schema: AIRPORT
+    tables:
+      - name: AIRPORTS
+      - name: AIRPORT_FREQUENCIES
+      - name: AIRPORT_COMMENTS
+      - name: RUNWAYS
+      - name: NAVAIDS
+      - name: COUNTRIES
+      - name: REGIONS

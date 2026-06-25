@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: src_runways
+    columns:
+      - name: runway_id
+        tests: [unique, not_null]
+      - name: airport_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_airports')
+                field: airport_id

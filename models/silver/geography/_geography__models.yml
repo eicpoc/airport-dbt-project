@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: src_countries
+    columns:
+      - name: country_code
+        tests: [unique, not_null]
+
+  - name: src_regions
+    columns:
+      - name: region_code
+        tests: [unique, not_null]
+      - name: country_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_countries')
+                field: country_code

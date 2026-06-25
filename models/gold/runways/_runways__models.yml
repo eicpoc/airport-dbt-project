@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: fct_runways
+    columns:
+      - name: runway_id
+        tests: [unique, not_null]

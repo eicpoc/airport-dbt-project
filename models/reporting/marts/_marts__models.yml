@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: airport_infrastructure_summary
+    columns:
+      - name: airport_id
+        tests: [unique, not_null]
+
+  - name: runway_capacity_by_country
+    columns:
+      - name: country_name
+        tests: [unique, not_null]
+
+  - name: navaid_coverage_by_region
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - region_name
+              - country_name

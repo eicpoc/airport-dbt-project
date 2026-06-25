@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: src_airports
+    columns:
+      - name: airport_id
+        tests: [unique, not_null]
+      - name: airport_ident
+        tests: [unique, not_null]
+      - name: country_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_countries')
+                field: country_code
+      - name: region_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_regions')
+                field: region_code
+  - name: src_airport_comments
+    columns:
+      - name: comment_id
+        tests: [unique, not_null]
+      - name: airport_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_airports')
+                field: airport_id
+  - name: src_airport_frequencies
+    columns:
+      - name: frequency_id
+        tests: [unique, not_null]
+      - name: airport_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('src_airports')
+                field: airport_id
+  - name: src_navaids
+    columns:
+      - name: navaid_id
+        tests: [unique, not_null]

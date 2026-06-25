@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: fct_navaids
+    columns:
+      - name: navaid_id
+        tests: [unique, not_null]
