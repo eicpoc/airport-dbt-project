@@ -8,7 +8,7 @@ select
     count(distinct r.runway_id)      as total_runways,
     count(distinct n.navaid_id)      as total_navaids,
     count(distinct f.frequency_id)   as total_frequencies,
-    count(distinct c.comment_id)     as total_comments
+    count(distinct c.comment_id)     as total_comment
 from {{ ref('dim_airports') }} a
 left join {{ ref('fct_runways') }} r on a.airport_id = r.airport_id
 left join {{ ref('fct_navaids') }} n on a.airport_ident = n.airport_ident
